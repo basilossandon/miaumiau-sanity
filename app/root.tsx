@@ -89,7 +89,6 @@ export async function loader({context}: LoaderArgs) {
     context.storefront.query<{shop: Shop}>(SHOP_QUERY),
     context.sanity.query<any>({query: LAYOUT_QUERY, cache}),
   ]);
-
   const selectedLocale = context.storefront.i18n as I18nLocale;
 
   return defer({
@@ -139,6 +138,7 @@ export default function App() {
         <PreviewProvider previewConfig={preview} fallback={<PreviewLoading />}>
           <Layout key={`${locale.language}-${locale.country}`}>
             <Outlet />
+            <div>this is a react test</div>
           </Layout>
         </PreviewProvider>
         <ScrollRestoration nonce={nonce} />
